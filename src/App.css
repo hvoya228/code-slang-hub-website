@@ -1,20 +1,27 @@
 @import url('https://fonts.cdnfonts.com/css/tiny-box');
 @import url('https://fonts.cdnfonts.com/css/bitbold');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
 
 /* GENERAL */
 
-.App {
+.container {
   width: 100%;
-  
   opacity: 0;
   animation: fadeIn 3s ease forwards;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: space-between; */
+  align-items: center;
+  height: 100vh;
+}
+
+.main {
+  margin-top: 12%;
+  /* margin-bottom: 100vh; */
 }
 
 body {
-  background-color: #E6E6E6;
+  background-color: #f0f0f0;
   color: #39393A;
   font-family: 'BitBold', sans-serif;
 }
@@ -34,17 +41,54 @@ a:hover {
 .header {
   position: fixed;
   top: 0;
-  width: 98%;
+  width: 100%;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.7rem;
+  background-color: #E6E6E6;
 }
 
 .main {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80vw;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5;
+  z-index: 1;
+}
+
+.table-terminal {
+  width: 100%;
+  color: #39393A;
+  background-color: #E6E6E6;
+  border-collapse: collapse;
+  border: 0.19rem solid #39393A;
+  margin-bottom: 15%;
+}
+
+.table-terminal th {
+  
+  font-size: 0.9rem;
+}
+
+.table-terminal td {
+  font-family: Consolas, monospace;
+  font-size: 0.9rem;
+}
+
+.table-terminal th, .table-terminal td {
+  border: 0.15rem solid #39393A;
+  padding: 10px;
+  text-align: left;
+}
+
+.table-terminal th {
+  background-color: #E6E6E6;
 }
 
 .footer {
@@ -56,11 +100,7 @@ a:hover {
   align-items: center;
   flex-direction: column;
   z-index: 1000;
-}
-
-.logo-container {
-  top: 0;
-  transform: translateX(-50%);
+  background-color: #E6E6E6;
 }
 
 .logo {
@@ -68,13 +108,19 @@ a:hover {
   font-weight: bold;
 }
 
+.logo-text-container {
+  font-size: 0.85rem;
+  margin-right: 2vw;
+}
+
 .logo-text {
   font-family: 'Tiny BoxBitA10', sans-serif;
-  font-size: 0.85rem;
 }
 
 .footer-links {
-  margin-bottom: 2vh;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5vh;
   font-size: 0.6rem;
 }
 

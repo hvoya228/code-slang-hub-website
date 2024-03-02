@@ -1,26 +1,27 @@
 import './App.css';
 import Logo from './components/Logo.js'; 
 import LogoText from './components/LogoText.js';
+import DataTable from './components/DataTable.js';
 import Links from './components/Links.js';
 import BarCodeLogo from './components/BarCodeLogo.js';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
 
-      <header className="header">
+      <div className="header">
         <Logo />
         <LogoText />
-      </header>
+      </div>
 
-      <main className="main">
+      <div className="main">
+        <DataTable />
+      </div>
 
-      </main>
-
-      <footer className="footer">
+      <div className="footer">
         <BarCodeLogo />
         <Links />
-      </footer>
+      </div>
 
     </div>
   );
