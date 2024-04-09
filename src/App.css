@@ -16,7 +16,7 @@
 }
 
 .main {
-  margin-top: 12%;
+  margin-top: 9%;
   /* margin-bottom: 100vh; */
 }
 
@@ -63,6 +63,7 @@ a:hover {
 }
 
 .table-terminal {
+  table-layout: fixed;
   width: 100%;
   color: #39393A;
   background-color: #E6E6E6;
@@ -71,8 +72,20 @@ a:hover {
   margin-bottom: 15%;
 }
 
+.search-bar {
+  width: 100%;
+  color: #39393A;
+  background-color: #E6E6E6;
+  border: 0.19rem solid #39393A;
+  margin-bottom: 2%;
+  padding: 10px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  outline: none;
+  font-family: Consolas, monospace;
+}
+
 .table-terminal th {
-  
   font-size: 0.9rem;
 }
 

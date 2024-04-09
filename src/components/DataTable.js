@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import SearchBar from './SearchBar';
 
 function DataTable() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         fetch('/api/Term/Get')
@@ -21,36 +23,30 @@ function DataTable() {
         return <div>Loading...</div>;
     }
 
+    const filteredData = data.filter(item => item.text.toLowerCase().includes(searchTerm.toLowerCase()));
+
     return (
-        <table className="table-terminal">
-            <thead>
-                <tr>
-                    <th><span style={{ color: '#297373' }}>/</span>term<span style={{ color: '#297373' }}>/</span></th>
-                    <th><span style={{ color: '#297373' }}>/</span>explanation<span style={{ color: '#297373' }}>/</span></th>
-                    <th><span style={{ color: '#297373' }}>/</span>category<span style={{ color: '#297373' }}>/</span></th>
-                    <th><span style={{ color: '#297373' }}>/</span>using example<span style={{ color: '#297373' }}>/</span></th>
-                </tr>
-            </thead>
-            <tbody>
-            {data.length > 0 ? (
-                    data.map((item, index) => (
+        <div>
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <table className="table-terminal">
+                <thead>
+                    <tr>
+                        <th><span style={{ color: '#297373' }}>/</span>term<span style={{ color: '#297373' }}>/</span></th>
+                        <th><span style={{ color: '#297373' }}>/</span>explanation<span style={{ color: '#297373' }}>/</span></th>
+                        <th><span style={{ color: '#297373' }}>/</span>category<span style={{ color: '#297373' }}>/</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {filteredData.map((item, index) => (
                         <tr key={index}>
                             <td>{item.text}</td>
                             <td>{item.explanation}</td>
                             <td>{item.category}</td>
-                            <td>{item.usingExample}</td>
                         </tr>
-                    ))
-                ) : (
-                    <tr>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }
 
